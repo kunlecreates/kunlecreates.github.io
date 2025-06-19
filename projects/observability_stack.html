@@ -1,0 +1,63 @@
+---
+layout: default
+title: Observability Stack on Kubernetes
+---
+
+
+<header class="hero">
+  <h1>Observability Stack on Kubernetes</h1>
+  <p>Production-ready Monitoring, Tracing, and Logging for Distributed Systems</p>
+</header>
+
+<section class="content">
+  <h2>Overview</h2>
+  <p>This project showcases a fully integrated observability stack deployed on Kubernetes, offering end-to-end visibility across microservices. The architecture collects telemetry data, processes it, and provides actionable insights through metrics, logs, and traces.</p>
+
+  <h2>Architecture Diagram</h2>
+  <img src="/assets/images/observability-diagram.png" alt="Observability Stack Diagram" class="diagram">
+
+  <h2>Screenshots</h2>
+    <img src="assets/screenshot.png" alt="App screenshot" />
+    <img src="/assets/images/acegrocer.png" alt="AceGrocer UI Screenshot" width="600" class="diagram"/>
+
+  <h2>Tech Stack</h2>
+  <ul>
+    <li><strong>Kubernetes</strong> - Orchestrates microservices and observability tools</li>
+    <li><strong>OpenTelemetry Collector</strong> - Collects and forwards telemetry data</li>
+    <li><strong>Jaeger</strong> - Visualizes distributed traces</li>
+    <li><strong>Prometheus</strong> - Scrapes and stores time-series metrics</li>
+    <li><strong>Grafana</strong> - Dashboards for real-time metrics</li>
+    <li><strong>ECK (Elastic Cloud on Kubernetes)</strong> - Manages Elasticsearch and Kibana</li>
+    <li><strong>OAuth2 Proxy</strong> - Secures access to dashboards</li>
+    <li><strong>Helm</strong> - Automates deployments and configuration</li>
+  </ul>
+
+  <h2>Deployment Workflow</h2>
+  <ol>
+    <li>Install operators (OpenTelemetry, Jaeger, Prometheus, ECK, Grafana) using Helm charts</li>
+    <li>Apply custom resource definitions (CRDs) for each observability component</li>
+    <li>Deploy microservices with OpenTelemetry instrumentation</li>
+    <li>Route data to Prometheus, Jaeger, and Elasticsearch for visualization</li>
+    <li>Secure dashboards with OAuth2 Proxy behind NGINX Ingress</li>
+  </ol>
+
+  <h2>Challenges Solved</h2>
+  <ul>
+    <li>Unified visibility across services without vendor lock-in</li>
+    <li>Secure access to observability endpoints using OAuth2</li>
+    <li>Automated Helm-based deployments for consistency</li>
+    <li>Scalable telemetry collection using Operator patterns</li>
+  </ul>
+
+  <h2>Use Cases</h2>
+  <ul>
+    <li>DevOps pipelines requiring performance metrics and logs</li>
+    <li>Microservice debugging and root cause analysis</li>
+    <li>Engineering demo environments with full traceability</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Source code is private. For a guided walkthrough or access to the private repositories and scripts, please <a href="mailto:info.cideveloper@gmail.com">contact me directly</a>.</p>
+</section>
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="Kunle Creates - Engineering Workflows, CI/CD Pipelines, Observability, and Java Projects Portfolio">
+  <meta name="keywords" content="Java, Kubernetes, CI/CD, Spring Boot, Microservices, DevOps, Observability, GitHub Pages">
+  <meta name="author" content="Kunle Ogunlana">
+
+  <!-- Open Graph (for social sharing previews) -->
+  <meta property="og:title" content="Kunle Creates - Portfolio">
+  <meta property="og:description" content="Showcasing real-world deployments and Java-based engineering projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kunlecreates.org">
+  <meta property="og:image" content="https://kunlecreates.org/assets/images/social-preview.png"> <!-- Replace with a real preview image -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kunle Creates - Engineering Portfolio">
+  <meta name="twitter:description" content="Explore CI/CD, Kubernetes, Observability, and Java projects.">
+  <meta name="twitter:image" content="https://kunlecreates.org/assets/images/social-preview.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | KunleCreates Portfolio</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="canonical" href="https://kunlecreates.org/">
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+      <li><a href="/microservices" class="{% if page.url == '/microservices/' %}active{% endif %}">Socials Microservices</a></li>
+      <li><a href="/javaee" class="{% if page.url == '/javaee/' %}active{% endif %}">Grocery Store App</a></li>
+      <li><a href="/solitaire" class="{% if page.url == '/solitaire/' %}active{% endif %}">Solitaire Game</a></li>
+      <li><a href="/observability" class="{% if page.url == '/observability/' %}active{% endif %}">Observability Stack</a></li>
+      <li><a href="/contact" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; {{ "now" | date: "%Y" }} Kunle Ogunlana | <a href="mailto:info.cideveloper@gmail.com">info.cideveloper@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>

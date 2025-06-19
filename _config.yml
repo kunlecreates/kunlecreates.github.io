@@ -1,0 +1,9 @@
+title: Kunle Creates
+description: Portfolio of professional PoCs and engineering workflows
+theme: null
+markdown: kramdown
+permalink: pretty
+
+# Optional: Enable custom CSS (if added later)
+# include:
+#   - assets/css/style.css

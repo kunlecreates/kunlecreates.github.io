@@ -1,0 +1,69 @@
+---
+layout: default
+title: Java Swing Solitaire Game
+---
+
+
+<header class="hero">
+  <h1>Java Swing Solitaire Game</h1>
+  <p>Classic Desktop Solitaire with Object-Oriented Design Patterns</p>
+</header>
+
+<section class="content">
+  <h2>Overview</h2>
+  <p>A standalone desktop application developed with Java Swing, demonstrating a fully functional Solitaire card game. Emphasizes clean design patterns and event-driven GUI programming.</p>
+ 
+  <h2>Download & Run</h2>
+  <p>
+    <a href="/assets/executables/solitaire-game.jar" download style="font-weight:bold;color:#3498db;">
+      Download Solitaire Game (ZIP)
+    </a>
+  </p>
+  <p><strong>Instructions:</strong> Unzip and open the SolitaireApp folder. Double-click the SolitaireApp application to run on Windows and enjoy. (App runs natively on Windows without Java installation needed) </p>
+
+  <h2>Play In Your Browser(Powered by <a href="https://cheerpj.com/docs/overview" target="_blank">CheerpJ</a>)</h2>
+  <p>This version runs directly in your browser using CheerpJ without needing Java installed locally.</p>
+  <p><em>Note: First-time load may take a few seconds.</em></p>
+  <div id="solitaire-container" style="width: 800px; height:600px; border:1px solid #ccc;"></div>
+
+  <script src="https://cjrtnc.leaningtech.com/4.1/loader.js"></script>
+  <script type="module">
+    (async () => {
+      await cheerpjInit();
+      cheerpjCreateDisplay(-1, -1, document.getElementById('solitaire-container'));
+      await cheerpjRunJar('/solitaire-online/Solitaire.jar');
+    })();
+  </script>
+  
+  <h2>Screenshots</h2>
+    <img src="assets/screenshot.png" alt="App screenshot" />
+    <img src="/assets/images/solitaire.png" alt="Solitaire GUI Screenshot" width="600" class="diagram"/>
+
+
+  <h2>Key Features</h2>
+  <ul>
+    <li>Classic Solitaire rules and gameplay</li>
+    <li>Graphical user interface with mouse-click card and stack movement</li>
+    <li>Object-oriented design using MVC and Observer patterns</li>
+    <li>Undo/redo functionality and game state persistence in development</li>
+    <li>Custom card animations and responsive UI</li>
+  </ul>
+
+  <h2>Architecture</h2>
+  <ul>
+    <li><strong>Model:</strong> Card, Deck, and Game state management classes</li>
+    <li><strong>View:</strong> Swing components and custom rendering</li>
+    <li><strong>Controller:</strong> Event listeners and user input handling</li>
+  </ul>
+
+  <h2>Use Cases</h2>
+  <ul>
+    <li>Demonstrates desktop GUI development in Java</li>
+    <li>Example of applying design patterns in game programming</li>
+    <li>Standalone educational project for Java Swing fundamentals</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Source code is private. For access or to discuss game enhancements, please <a href="mailto:info.cideveloper@gmail.com">contact me</a>.</p>
+</section>
+

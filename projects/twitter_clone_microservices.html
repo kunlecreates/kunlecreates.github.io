@@ -1,0 +1,61 @@
+---
+layout: default
+title: Twitter-Clone Microservices Application
+---
+
+
+<header class="hero">
+  <h1>Twitter-Clone Microservices Application</h1>
+  <p>Cloud-Native Architecture with CI/CD, Helm, and End-to-End Observability</p>
+</header>
+
+<section class="content">
+  <h2>Overview</h2>
+  <p>This microservices-based application replicates key functionalities of a social media platform similar to Twitter. It is designed with Spring Boot microservices communicating over REST APIs, containerized with Docker, deployed to Kubernetes, and instrumented with a complete observability stack.</p>
+
+  <h2>Architecture Diagram</h2>
+  <img src="/assets/images/microservices-arch.png" alt="Microservices Architecture Diagram" class="diagram">
+
+  <h2>Microservices Overview</h2>
+  <ul>
+    <li><strong>User Management Service</strong> - Handles registration, authentication, and user profiles</li>
+    <li><strong>Message Service</strong> - Manages tweet-like posts, mentions, and timelines</li>
+    <li><strong>Gateway API</strong> - Central access point, routes requests to respective services</li>
+    <li><strong>JWT Authentication</strong> - Secure communication via stateless token validation</li>
+  </ul>
+
+  <h2>Tech Stack</h2>
+  <ul>
+    <li><strong>Spring Boot</strong> - Microservices architecture and REST APIs</li>
+    <li><strong>Docker & Kubernetes</strong> - Container orchestration and deployment</li>
+    <li><strong>Helm</strong> - Package manager for Kubernetes</li>
+    <li><strong>GitLab CI/CD</strong> - Automated testing, building, and deployment pipelines</li>
+    <li><strong>PostgreSQL</strong> - Relational data storage for users and messages</li>
+    <li><strong>OpenTelemetry + Jaeger + Prometheus + Grafana</strong> - Complete observability solution</li>
+  </ul>
+
+  <h2>DevOps Workflow</h2>
+  <ol>
+    <li>Source code pushed to GitLab triggers pipeline</li>
+    <li>CI/CD builds and tests services, packages as Docker images</li>
+    <li>Helm deploys updated images to Kubernetes</li>
+    <li>Telemetry automatically collected and visualized</li>
+  </ol>
+
+  <h2>Challenges Solved</h2>
+  <ul>
+    <li>Microservices discovery, authentication, and authorization</li>
+    <li>Secure and scalable deployment with GitOps workflow</li>
+    <li>Unified tracing, metrics, and logging for debugging and performance</li>
+  </ul>
+
+  <h2>Use Cases</h2>
+  <ul>
+    <li>Hands-on demonstration of microservices deployment pipeline</li>
+    <li>Educational platform for CI/CD and observability</li>
+    <li>Testbed for performance tuning, tracing, and container security</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Source code is private. For private access to code and Helm chart configurations, or to schedule a live demo, please <a href="mailto:info.cideveloper@gmail.com">contact me directly</a>.</p>
+</section>

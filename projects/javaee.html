@@ -1,0 +1,73 @@
+---
+layout: default
+title: AceGrocer Store
+---
+
+
+<header class="hero">
+  <h1>Monolithic Java EE Web Application</h1>
+  <p>Legacy Architecture Evolved: Dynamic JSP/Servlet Application with Modernization Path</p>
+</header>
+
+<section class="content">
+  <h2>Overview</h2>
+  <p>AceGrocer is a Java EE-based web application that allows users to register and verify their email via a tokenized link in order to access in-stock inventory and item location search.</p>
+  <p>Email verification is handled using JavaMail and token authentication.</p>
+  <p>This Grocery Store web application demonstrates a traditional monolithic architecture designed for administrative operations. Built using JSP, Servlets, and JDBC, it follows a classic MVC pattern and connects to a backend with options such as MySQL, HSQLDB databases. It is currently undergoing migration to a Spring Boot-based microservices architecture with separate services for users, inventory, and transactions for improved scalability and maintainability.</p>
+
+  <h2>Architecture Diagram</h2>
+  <img src="/assets/images/javaee-webapp.png" alt="Java EE Architecture Diagram" class="diagram">
+
+  <h2>📸 Screenshot</h2>
+    <img src="assets/screenshot.png" alt="App screenshot" />
+    <img src="/assets/images/acegrocer.png" alt="AceGrocer UI Screenshot" width="600" class="diagram"/>
+
+  <h2>Key Features</h2>
+  <ul>
+    <li>Full CRUD functionality for users, inventory, and transactions</li>
+    <li>MVC design using JSP (View), Servlets (Controller), and DAO (Model)</li>
+    <li>Session-based authentication and admin authorization</li>
+    <li>Database interaction using JDBC with DAO abstraction</li>
+    <li>Tomcat server runtime and WAR packaging</li>
+  </ul>
+
+  <h2>Tech Stack</h2>
+  <ul>
+    <li><strong>Java EE</strong> - Servlets, JSP</li>
+    <li><strong>JDBC</strong> - Direct SQL access via DAO layer</li>
+    <li><strong>MySQL</strong> - Relational data persistence</li>
+    <li><strong>Apache Tomcat</strong> - Web application runtime</li>
+    <li><strong>Eclipse IDE</strong> - Development and testing</li>
+  </ul>
+
+  <h2>Modernization Roadmap</h2>
+  <ol>
+    <li>Split business logic into independent Spring Boot microservices</li>
+    <li>Replace JDBC with JPA + Spring Data</li>
+    <li>Expose RESTful APIs and integrate with API Gateway</li>
+    <li>Containerize services and deploy to Kubernetes</li>
+    <li>Add CI/CD pipeline using GitLab or Jenkins</li>
+  </ol>
+
+  <h2>Challenges Solved</h2>
+  <ul>
+    <li>Maintains clear MVC structure despite legacy tech stack</li>
+    <li>Implements decoupling and DAO pattern for maintainability</li>
+    <li>Demonstrates end-to-end business flow from UI to database</li>
+  </ul>
+
+  <h2>Use Cases</h2>
+  <ul>
+    <li>Education on legacy Java EE patterns</li>
+    <li>Baseline for refactoring legacy monoliths</li>
+    <li>Administrative dashboards with user/inventory/transaction control</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>The Source code is private. For a full code walkthrough, deployment scripts, or a modernization demo, please <a href="mailto:info.cideveloper@gmail.com">contact me directly</a>.</p>
+  <p>The demo will be made available via the following button after your successful request</p>
+  <br></br>
+  <a class="btn" href="https://ample-vast-foxhound.ngrok-free.app/AceGrocer/index.html" target="_blank">Visit Homepage</a>
+
+</section>
+

@@ -1,0 +1,106 @@
+---
+layout: default
+title: Kunle Creates - Portfolio
+---
+
+<header class="hero">
+  <h1>Kunle Creates</h1>
+  <p>Showcasing Engineering Workflows, Production-Grade Deployments, and Real-World Application Architectures</p>
+</header>
+
+<section class="projects">
+  <h2>Featured Projects</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <img src="/assets/images/observability-diagram.png" alt="Observability Stack Diagram">
+      <h3>Observability Stack on Kubernetes</h3>
+      <p>Enterprise-grade observability architecture using OpenTelemetry Collector, Jaeger, Prometheus, Grafana, and ECK, fully automated with Helm and secured with OAuth2 Proxy.</p>
+      <a href="/projects/observability_stack.html">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="/assets/images/javaee-webapp.png" alt="Java EE App Screenshot">
+      <h3>Monolithic Java EE Web Application</h3>
+      <p>Dynamic web application for administrative operations using JSP, Servlets, JDBC, and MySQL/HSQLDB. Currently undergoing microservice decomposition and Spring Boot migration.</p>
+      <a href="/projects/javaee.html">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="/assets/images/swing-solitaire.png" alt="Swing Solitaire">
+      <h3>Java Swing Solitaire Game</h3>
+      <p>Desktop Solitaire game designed with MVC principles using Java Swing and AWT. Features intuitive drag-and-drop interface and scoring logic with core Java fundamentals.</p>
+      <a href="/projects/swing_solitaire.html">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <img src="/assets/images/microservices-arch.png" alt="Microservices Architecture">
+      <h3>Twitter-Clone Microservices Application</h3>
+      <p>Modular cloud-native application built with Spring Boot, deployed on Kubernetes, integrated with GitLab CI/CD, Helm, and full observability stack. Secure JWT-based authentication.</p>
+      <a href="/projects/twitter_clone_microservices.html">View Project</a>
+    </div>
+
+  </div>
+</section>
+
+<h2>About Me</h2>
+  <p>I am Kunle Ogunlana, a Cybersecurity professional, software developer and DevOps enthusiast passionate about cloud-native design, observability, and secure delivery pipelines.</p>
+  <p>I have built this site to provide insight into my end-to-end solution capabilities—from design and development to deployment and monitoring.</p>
+
+<footer>
+  <p>&copy; 2025 Kunle Ogunlana &mdash; <a href="mailto:info.cideveloper@gmail.com">info.cideveloper@gmail.com.com</a></p>
+</footer>
+
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 30px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+.hero {
+  text-align: center;
+  background: linear-gradient(to right, #2c3e50, #3498db);
+  color: white;
+  padding: 3rem 1rem;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+}
+.project-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.project-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #8f8c8c;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+</style>
