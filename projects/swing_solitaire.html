@@ -29,7 +29,7 @@ permalink: /projects/swing-solitaire/
 
   <script src="https://cjrtnc.leaningtech.com/4.1/loader.js"></script>
   <script type="module">
-    (async () => {
+    (async function () {
       await cheerpjInit();
       cheerpjCreateDisplay(-1, -1, document.getElementById('solitaire-container'));
       await cheerpjRunJar('/assets/executables/SolitaireApp.jar');
