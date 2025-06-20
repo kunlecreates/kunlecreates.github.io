@@ -24,18 +24,21 @@
   <title>{{ page.title }} | KunleCreates Portfolio</title>
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link rel="canonical" href="https://kunlecreates.org/">
-  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/site.webmanifest">
 </head>
 <body>
 
   <nav>
     <ul>
       <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
-      <li><a href="/microservices" class="{% if page.url == '/microservices/' %}active{% endif %}">Socials Microservices</a></li>
-      <li><a href="/javaee" class="{% if page.url == '/javaee/' %}active{% endif %}">Grocery Store App</a></li>
-      <li><a href="/solitaire" class="{% if page.url == '/solitaire/' %}active{% endif %}">Solitaire Game</a></li>
-      <li><a href="/observability" class="{% if page.url == '/observability/' %}active{% endif %}">Observability Stack</a></li>
-      <li><a href="/contact" class="{% if page.url == '/contact/' %}active{% endif %}">Contact</a></li>
+      <li><a href="/projects/twitter-clone/" class="{% if page.url == '/projects/twitter-clone/' %}active{% endif %}">Socials Microservices</a></li>
+      <li><a href="/projects/grocery-store/" class="{% if page.url == '/projects/grocery-store/' %}active{% endif %}">Grocery Store App</a></li>
+      <li><a href="/projects/swing-solitaire/" class="{% if page.url == '/projects/swing-solitaire/' %}active{% endif %}">Solitaire Game</a></li>
+      <li><a href="/projects/observability-stack/" class="{% if page.url == '/projects/observability-stack/' %}active{% endif %}">Observability Stack</a></li>
+      <li><a href="/projects/contact/" class="{% if page.url == '/projects/contact/' %}active{% endif %}">Contact</a></li>
     </ul>
   </nav>
 
