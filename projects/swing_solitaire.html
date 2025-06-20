@@ -27,12 +27,21 @@ permalink: /projects/swing-solitaire/
   <p><em>Note: First-time load may take a few moment longer to be ready.</em></p>
   <div id="solitaire-container" style="width: 800px; height:600px; border:1px solid #ccc;"></div>
 
+  <!-- Load CheerpJ runtime -->
+  <script src="https://cjrtnc.leaningtech.com/4.1/loader.js"></script>
+
+  <!-- Wait for runtime to load, then run JAR -->
   <script type="module">
-    (async function () {
+    window.addEventListener("load", async () => {
+      if (typeof cheerpjInit === "undefined") {
+        console.error("cheerpjInit is not defined. loader.js may have failed to load.");
+        return;
+      }
+
       await cheerpjInit();
-      cheerpjCreateDisplay(-1, -1, document.getElementById('solitaire-container'));
-      await cheerpjRunJar('/assets/executables/SolitaireApp.jar');
-    })();
+      cheerpjCreateDisplay(-1, -1, document.getElementById("solitaire-container"));
+      await cheerpjRunJar("/assets/executables/SolitaireApp.jar"); // or .txt if renamed
+    });
   </script>
   
   <h2>Screenshots</h2>
