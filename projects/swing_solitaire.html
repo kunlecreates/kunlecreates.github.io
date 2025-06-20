@@ -25,11 +25,7 @@ permalink: /projects/swing-solitaire/
   <h2>Play In Your Browser (Powered by <a href="https://cheerpj.com/docs/overview" target="_blank">CheerpJ</a>)</h2>
   <p>This version runs directly in your browser using CheerpJ without needing Java installed locally.</p>
   <p><em>Note: First-time load may take a few moment longer to be ready.</em></p>
-  <div id="solitaire-container" class="centered-container" style="width: 800px; height:600px; border:1px solid #ccc;">
-    <div id="fallback-message" style="color: rgb(229, 148, 43); font-family: sans-serif;">
-      <p>Loading Solitaire... Please wait.</p>
-    </div>
-  </div>
+  <div id="solitaire-container" class="centered-container" style="width: 800px; height:600px; border:1px solid #ccc;"></div>
 
   <!-- Load CheerpJ runtime -->
   <script src="https://cjrtnc.leaningtech.com/4.1/loader.js"></script>
@@ -37,24 +33,14 @@ permalink: /projects/swing-solitaire/
   <!-- Wait for runtime to load, then run JAR -->
   <script type="module">
     window.addEventListener("load", async () => {
-      const fallback = document.getElementById("fallback-message");
+      if (typeof cheerpjInit === "undefined") {
+        console.error("cheerpjInit is not defined. loader.js may have failed to load.");
+        return;
+      }
 
-      try {
-        if (typeof cheerpjInit === "undefined") {
-          console.error("cheerpjInit is not defined. loader.js may have failed to load.");
-          fallback.innerHTML = "⚠️ Failed to load Java runtime (CheerpJ).";
-          return;
-        }
-
-        await cheerpjInit({version: 17});
-        cheerpjCreateDisplay(764, 740, document.getElementById("solitaire-container"));
-        await cheerpjRunJar("/app/assets/executables/SolitaireApp.jar"); // or .txt if renamed
-
-        fallback.style.display = "none";
-      } catch (err) {
-        console.error(err);
-        fallback.innerHTML = "❌ An error occurred loading the Solitaire app.";
-      }  
+      await cheerpjInit({version: 17});
+      cheerpjCreateDisplay(764, 740, document.getElementById("solitaire-container"));
+      await cheerpjRunJar("/app/assets/executables/SolitaireApp.jar"); // or .txt if renamed
     });
   </script>
   
