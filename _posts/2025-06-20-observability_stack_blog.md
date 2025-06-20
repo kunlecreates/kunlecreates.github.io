@@ -1,6 +1,9 @@
 ---
-
-## title: "Designing a Production-Grade Observability Stack on Kubernetes" date: 2025-06-17 layout: post tags: [Kubernetes, Observability, OpenTelemetry, Prometheus, Grafana, Jaeger, ECK, DevOps]
+layout: post
+title: "Designing a Production-Grade Observability Stack on Kubernetes" 
+date: 2025-06-17  
+tags: [Kubernetes, Observability, OpenTelemetry, Prometheus, Grafana, Jaeger, ECK, DevOps]
+---
 
 Modern cloud-native applications demand deep visibility across every layer; the 3-prong pillar of application signals ably called "Telemetry" which are logs, metrics, and traces, ensure reliability, security, and performance. In this post, I walk through how I designed and deployed a production-grade observability stack on Kubernetes that brings full-stack visibility to a distributed microservice ecosystem.
 

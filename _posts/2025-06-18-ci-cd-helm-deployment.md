@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Implementing CI/CD and Helm for Cloud-Native Application Deployment
 date: 2025-06-18
 ---
