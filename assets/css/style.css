@@ -184,7 +184,7 @@ nav ul li a.active {
   justify-content: center;
   align-items: center;
   min-height: 800px; /* Or use viewport height: 100vh */
-  background-color: #006400; /* Match your game's green background */
+  background-color: #f1f3f1; 
   padding: 20px;
 }
 
