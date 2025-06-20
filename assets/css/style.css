@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f6f8;
@@ -13,6 +17,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Container for main content */
@@ -21,6 +26,12 @@ body {
   margin: 2rem auto;
   padding: 0 1rem;
   flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Header hero */
@@ -45,6 +56,7 @@ body {
 
 /* Navigation bar */
 nav {
+  width: 100vw;
   background-color: #222;
   padding: 0.5rem 1rem;
 }
@@ -199,17 +211,23 @@ canvas {
   bottom: 30px;
   right: 30px;
   background-color: #3498db;
-  color: white;
-  text-align: center;
-  padding: 12px;
   border-radius: 50%;
-  font-size: 1.5rem;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 999;
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
 }
 
 .back-to-top.show {
@@ -223,6 +241,7 @@ canvas {
 
 /* Footer */
 footer {
+  width: 100vw;
   text-align: center;
   padding: 1.5rem 1rem;
   background-color: #8f8c8c;
