@@ -54,4 +54,4 @@ Feel free to connect or reach out via email:
 
 ---
 
-© 2025 Kunle Ogunlana. All rights reserved.
+© {{ "now" | date: "%Y" }} Kunle Ogunlana. All rights reserved.

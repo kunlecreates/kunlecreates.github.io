@@ -193,6 +193,34 @@ canvas {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
+/* Back-to-Top icon */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: #2980b9;
+}
+
 /* Footer */
 footer {
   text-align: center;
