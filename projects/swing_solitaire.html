@@ -38,7 +38,7 @@ permalink: /projects/swing-solitaire/
         return;
       }
 
-      await cheerpjInit();
+      await cheerpjInit({version: 17});
       cheerpjCreateDisplay(-1, -1, document.getElementById("solitaire-container"));
       await cheerpjRunJar("/app/assets/executables/SolitaireApp.jar"); // or .txt if renamed
     });
