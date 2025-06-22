@@ -51,15 +51,17 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">
-    <span class="back-to-top-text">Back to top</span>
+<div class="back-to-top-wrapper">
+  <span class="back-to-top-text">Back to top</span>
+  <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">    
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
       <path d="M12 4l-8 8h5v8h6v-8h5z"/>
     </svg>
   </a>
+</div>
 
   <script>
-    const backToTop = document.querySelector('.back-to-top');
+    const backToTop = document.querySelector('.back-to-top-wrapper');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         backToTop.classList.add('show');
@@ -68,7 +70,7 @@
     }
   });
 
-  backToTop.addEventListener('click', (e) => {
+  document.querySelector('.back-to-top').addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
