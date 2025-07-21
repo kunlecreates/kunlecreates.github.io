@@ -40,7 +40,7 @@ Deploying complex applications on Kubernetes manually can be error-prone and tim
 
 A typical pipeline involves these stages:
 
-1. **Code Commit:** Developers push code changes to the GitLab repository.
+1. **Code Commit:** Developers push code changes to a private repository (GitHub or GitLab).
 2. **Build & Test:** CI jobs compile the code, run unit and integration tests.
 3. **Containerization:** The application is packaged into Docker images.
 4. **Image Push:** Docker images are pushed to a private container registry.

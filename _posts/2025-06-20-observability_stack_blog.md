@@ -5,9 +5,9 @@ date: 2025-06-17
 tags: [Kubernetes, Observability, OpenTelemetry, Prometheus, Grafana, Jaeger, ECK, DevOps]
 ---
 
-Modern cloud-native applications demand deep visibility across every layer; the 3-prong pillar of application signals ably called "Telemetry" which are logs, metrics, and traces, ensure reliability, security, and performance. In this post, I walk through how I designed and deployed a production-grade observability stack on Kubernetes that brings full-stack visibility to a distributed microservice ecosystem.
+Modern cloud-native applications demand deep visibility across every layer; the 3-prong pillar of application signals notably called "Telemetry" which are logs, metrics, and traces, ensure reliability, security, and performance. In this post, I walk through how I designed and deployed a production-grade observability stack on Kubernetes that brings full-stack visibility to a distributed microservice ecosystem.
 
-## 📌 Why Observability Matters
+## Why Observability Matters
 
 As systems scale and become more distributed, debugging issues with just logs or metrics becomes insufficient. Observability brings the said three pillars — **metrics**, **logs**, and **traces** — into a single pane of glass, giving developers and DevOps engineers the ability to:
 
@@ -15,7 +15,7 @@ As systems scale and become more distributed, debugging issues with just logs or
 - Understand service-to-service interactions
 - Monitor and alert on critical business events
 
-## 🧱 Architecture Overview
+## Architecture Overview
 
 The observability stack includes:
 
@@ -24,21 +24,21 @@ The observability stack includes:
 - **Prometheus**: Metric scraping and storage
 - **Grafana**: Metric visualization and alerting
 - **Elasticsearch & Kibana (ECK)**: Log aggregation and exploration
-- **OAuth2 Proxy**: Secures access to dashboards
-- **Ingress NGINX**: Exposes services externally with TLS
+- **Cloudflare Zero Trust**: Secures access to dashboards and deployed backend application services
+- **Ingress NGINX**: Exposes services externally with TLS via my Cloudflare tunnel setup
 
 
 
-## 🚀 Deployment Strategy
+## Deployment Strategy
 
 ### 1. Namespace Isolation
 
 Each component is deployed to its own namespace for modular management and resource isolation such as:
 
-- `observability`
-- `otel-collector`
-- `jaeger-system`
-- `logging`
+- `observability-system`
+- `opentelemetry-system`
+- `elastic-system`
+- `prometheus-system`
 
 ### 2. Helm-Powered Installations
 
@@ -47,20 +47,20 @@ Helm charts and custom `values.yaml` files drive the automation:
 - **OpenTelemetry Collector** installed with the OpenTelemetry Operator
 - **Jaeger Operator** deployed with production strategy (`jaeger-all-in-one` avoided)
 - **Prometheus Operator** manages both Prometheus and Alertmanager
-- **Grafana** customized with dashboards and OAuth2 Proxy
+- **Grafana** customized with dashboards
 - **Elasticsearch + Kibana** bootstrapped using Elastic Cloud on Kubernetes (ECK)
 
 ### 3. Security and Routing
 
 - **Ingress NGINX** handles routing and TLS termination
-- **OAuth2 Proxy** integrates with GitHub or Google OAuth
+- **Cloudflare Zero Trust** integrates with GitHub or Google OAuth
 - Secrets are managed via Kubernetes `Secret` objects (future: migrate to Vault)
 
 ## 🔍 Stack Components Deep Dive
 
 ### OpenTelemetry Collector
 
-Custom receiver pipelines forward traces to Jaeger via gRPC:
+Custom receiver pipelines deployed using the Elastic Distribution of Opentelemetry (EDOT) forward traces to Jaeger via gRPC, metrics to Prometheus/Grafana, and logs to the Elastic stack (ECK):
 
 ```yaml
 receivers:
@@ -83,23 +83,24 @@ Prometheus scrapes metrics from services and kubelets. Grafana is pre-configured
 ### ECK (Elasticsearch & Kibana)
 
 - Elasticsearch cluster: 1 node (dev), auto-scalable
-- Elastic APM server to aggregate Opentelemetry Collector logs before delivery to the ECK Elasticsearch cluster
+- Elastic Distribution of Opentelemetry (EDOT) implemented to aggregate Opentelemetry Collector logs before delivery to the ECK Elasticsearch cluster
 - Kibana dashboards for logs per service
 
-## 💡 Lessons Learned
+## Lessons Learned
 
-- **CRDs & Cleanup**: Stuck CRDs can block redeployments — ensure cleanup scripts handle these.
-- **Securing Dashboards**: OAuth2 Proxy is crucial for securing Grafana, Kibana, Jaeger.
-- **Instrumentation**: Automate instrumentation using OpenTelemetry SDKs per language.
-- **Performance**: Resource limits must be set per collector; Jaeger’s memory config is sensitive. The Jaeger instance deployed was version 2, which is now easily deployed using the Opentelemetry Collector.
+- **CRDs & Cleanup**: Stuck CRDs can block redeployments. Ensuring the use of cleanup scripts handle these seamlessly.
+- **Securing Dashboards**: Cloudflare Zero Trust is crucial for securing Grafana, Kibana, Jaeger.
+- **Instrumentation**: Automate instrumentation of application services using OpenTelemetry SDKs per language.
+- **Performance**: Resource limits must be set per collector; Jaeger's memory config is sensitive. The Jaeger instance deployed was version 2, which is now easily deployed using the Opentelemetry Collector.
 
-## 📂 Resources & Tools
+## Resources & Tools
 
 - Helm charts (customized, available upon request)
 - Architecture diagrams ([private repo](https://github.com/kunlecreates))
-- [OpenTelemetry.io](https://opentelemetry.io/), [Grafana Labs](https://grafana.com/), [Jaeger](https://www.jaegertracing.io/), [ECK](https://www.elastic.co/what-is/eck)
+- [OpenTelemetry.io](https://opentelemetry.io/), [Grafana Labs](https://grafana.com/), [Jaeger](https://www.jaegertracing.io/), [ECK](https://www.elastic.co/docs/deploy-manage/deploy/cloud-on-k8s)
+- [EDOT](https://www.elastic.co/docs/solutions/observability/get-started/quickstart-unified-kubernetes-observability-with-elastic-distributions-of-opentelemetry-edot)
 
-## 🎯 Conclusion
+## Conclusion
 
 This observability stack provides full insight into microservice-based applications. With proactive alerting, distributed tracing, and structured logging, issues are caught earlier and resolved faster. For a live demo or Helm access, feel free to [contact me](mailto\:info.cideveloper@gmail.com).
 

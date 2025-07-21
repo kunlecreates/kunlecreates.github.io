@@ -20,6 +20,52 @@ body {
   overflow-x: hidden;
 }
 
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-list li {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-list h2 {
+  margin: 0 0 0.2rem 0;
+}
+
+.post-list p {
+  margin: 0.3rem 0;
+}
+
+.blog-post h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  background: #eef;
+  color: #336;
+  padding: 0.2em 0.6em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 3px;
+  font-size: 0.85em;
+  display: inline-block;
+}
+
+.featured-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
 /* Container for main content */
 .container {
   max-width: 960px;
@@ -299,7 +345,7 @@ footer {
 }
 
 footer a {
-  color: #3cafe9;
+  color: #3F48CC;
   text-decoration: none;
 }
 

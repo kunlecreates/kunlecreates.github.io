@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/">{{ site.title }}</a></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/blog/" class="active">Blog</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="blog-post">
+      {% if page.image %}
+        <img src="{{ page.image }}" alt="Featured image for {{ page.title }}" class="featured-image">
+      {% endif %}  
+      <article>
+        <h1>{{ page.title }}</h1>
+        <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
+        
+        {% if page.categories %}
+          <p class="post-category">
+            <strong>Category:</strong> {{ page.categories | join: ', ' }}
+          </p>
+        {% endif %}
+        {% if page.tags %}
+          <p class="post-tags">
+            <strong>Tags:</strong>
+            {% for tag in page.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </p>
+        {% endif %}
+
+        {{ content }}
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
