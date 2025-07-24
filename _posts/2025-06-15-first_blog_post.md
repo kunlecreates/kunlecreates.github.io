@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Modern DevOps for Java Microservices"
-date: 2025-06-17
+date: 2025-05-17
 tags: [Java, Kubernetes, CI/CD, Observability]
 description: "Lessons learned deploying a Twitter-clone microservice application with full observability, GitLab pipelines, and Helm."
 read_time: 4
