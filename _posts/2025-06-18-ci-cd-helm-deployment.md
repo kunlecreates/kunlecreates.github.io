@@ -2,6 +2,7 @@
 layout: post
 title: Implementing CI/CD and Helm for Cloud-Native Application Deployment
 date: 2025-06-18
+read_time: 4
 ---
 
 # Implementing CI/CD and Helm for Cloud-Native Application Deployment
@@ -12,7 +13,7 @@ In today's fast-paced software development world, Continuous Integration and Con
 
 This article explores how CI/CD pipelines and Helm charts integrate to create robust, repeatable deployments for modern microservices architectures.
 
----
+
 
 ## Why CI/CD Matters
 
@@ -23,7 +24,7 @@ CI/CD automates the build, testing, and deployment phases, bringing several adva
 - **Reduced manual errors:** Automation decreases human mistakes in deployment steps.
 - **Safer deployments:** Rollbacks and canary releases can be implemented confidently.
 
----
+
 
 ## Helm: The Kubernetes Package Manager
 
@@ -34,7 +35,7 @@ Deploying complex applications on Kubernetes manually can be error-prone and tim
 - Supporting rollback to previous versions if deployments fail.
 - Abstracting complex Kubernetes manifests into manageable templates.
 
----
+
 
 ## Building a CI/CD Pipeline with GitLab
 
@@ -47,7 +48,7 @@ A typical pipeline involves these stages:
 5. **Deployment:** Helm charts deploy or upgrade the application on Kubernetes.
 6. **Verification:** Monitoring tools check the health of deployed services.
 
----
+
 
 ## Example Workflow
 
@@ -63,7 +64,7 @@ flowchart TD
 
 This workflow ensures that each code change automatically propagates through build, test, and deployment, with immediate feedback and visibility.
 
----
+
 
 ## Challenges & Solutions
 
@@ -71,13 +72,13 @@ This workflow ensures that each code change automatically propagates through bui
 - **Multi-Service Dependencies:** Define clear Helm chart dependencies and deployment order.
 - **Idempotent Deployments:** Helm charts must be designed to handle repeated installs and upgrades without failures.
 
----
+
 
 ## Conclusion
 
 By integrating CI/CD pipelines with Helm, organizations can realize faster delivery cycles and greater deployment consistency. This foundation, paired with an observability stack (such as OpenTelemetry and Prometheus), ensures applications are not only delivered swiftly but monitored proactively, a hallmark of production-grade cloud-native systems.
 
----
+
 
 ## Further Reading
 

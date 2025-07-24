@@ -4,7 +4,10 @@ title: "Modern DevOps for Java Microservices"
 date: 2025-06-17
 tags: [Java, Kubernetes, CI/CD, Observability]
 description: "Lessons learned deploying a Twitter-clone microservice application with full observability, GitLab pipelines, and Helm."
+read_time: 4
 ---
+
+# Modern DevOps for Java Microservices
 
 Deploying modern Java microservices requires more than code - it's about automating workflows, securing services, and observing performance. Here's a summary of the architecture and lessons learned building a production-grade Twitter-clone:
 

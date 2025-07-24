@@ -4,41 +4,44 @@
     <meta charset="UTF-8" />
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Meta Tags for SEO -->
+  <meta name="description" content="Kunle Creates - Engineering Workflows, CI/CD Pipelines, Observability, and Java Projects Portfolio">
+  <meta name="keywords" content="Java, Kubernetes, CI/CD, Spring Boot, Microservices, DevOps, Observability, GitHub Pages">
+  <meta name="author" content="Kunle Ogunlana">
+
+  <!-- Open Graph (for social sharing previews) -->
+  <meta property="og:title" content="Kunle Creates - Portfolio">
+  <meta property="og:description" content="Showcasing real-world deployments and Java-based engineering projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kunlecreates.org">
+  <meta property="og:image" content="https://kunlecreates.org/assets/images/social-preview.png"> <!-- Replace with a real preview image -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kunle Creates - Engineering Portfolio">
+  <meta name="twitter:description" content="Explore CI/CD, Kubernetes, Observability, and Java projects.">
+  <meta name="twitter:image" content="https://kunlecreates.org/assets/images/social-preview.png">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://kunlecreates.org/">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+  <link rel="manifest" href="/assets/images/site.webmanifest">
   </head>
   <body>
     <header>
-      <h1><a href="/">{{ site.title }}</a></h1>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/projects/">Projects</a></li>
           <li><a href="/blog/" class="active">Blog</a></li>
         </ul>
       </nav>
     </header>
 
-    <main class="blog-post">
-      {% if page.image %}
-        <img src="{{ page.image }}" alt="Featured image for {{ page.title }}" class="featured-image">
-      {% endif %}  
-      <article>
-        <h1>{{ page.title }}</h1>
-        <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
-        
-        {% if page.categories %}
-          <p class="post-category">
-            <strong>Category:</strong> {{ page.categories | join: ', ' }}
-          </p>
-        {% endif %}
-        {% if page.tags %}
-          <p class="post-tags">
-            <strong>Tags:</strong>
-            {% for tag in page.tags %}
-              <span class="tag">{{ tag }}</span>
-            {% endfor %}
-          </p>
-        {% endif %}
-
+    <main class="content">    
         {{ content }}
       </article>
     </main>
@@ -46,5 +49,34 @@
     <footer>
       <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
     </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top-wrapper">
+      <span class="back-to-top-text">Back to top</span>
+      <a href="#" class="back-to-top" title="Back to Top" aria-label="Back to Top">    
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+          <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+        </svg>
+      </a>
+    </div>
+
+    <script>
+      const backToTop = document.querySelector('.back-to-top-wrapper');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      document.querySelector('.back-to-top').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
   </body>
 </html>

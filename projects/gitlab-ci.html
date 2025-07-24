@@ -1,0 +1,111 @@
+---
+layout: default
+title: GitLab CI/CD with Custom Tooling
+permalink: /projects/gitlab-ci/
+---
+
+<header class="hero">
+  <h1>GitLab CI/CD with Customized Tooling Docker Image</h1>
+  <p>End-to-End Automation for Kubernetes Deployments Using Custom Pipelines</p>
+</header>
+
+<section class="content">
+  <h2>Overview</h2>
+  <p>This project demonstrates a production-grade GitLab CI/CD pipeline designed to automate the build, containerization, and deployment of Java-based applications into a Kubernetes environment. The pipeline uses a custom Docker image preloaded with key DevOps tools to ensure fast, consistent, and isolated builds.</p>
+
+  <h2>Pipeline Architecture</h2>
+  <img src="/assets/images/gitlab-ci.png" alt="CI/CD Pipeline Diagram" class="diagram" />
+  
+  <h2>Screenshots</h2>
+    <img src="/assets/images/custom-image.png" alt="Custom Docker Image" class="diagram"/>
+    <img src="/assets/images/ci-job.png" alt="Gitlab CI script" class="diagram"/>
+
+  <h2>UI Walkthrough (GIF Preview)</h2>
+  <div class="demo-block">
+    <img src="/assets/gifs/ci-cd-demo.gif" alt="CI/CD jobs execution Walkthrough" class="diagram" />
+  </div>
+  
+  <h2>Workflow Description</h2>
+  <ol>
+    <li>Code is pushed to a private GitLab repository triggering the pipeline.</li>
+    <li>A custom GitLab Runner uses a prebuilt Docker image containing:
+      <ul>
+        <li><code>kubectl</code> - For cluster interaction</li>
+        <li><code>Helm</code> - For templated deployments</li>
+        <li><code>bash</code> and core Linux CLI tools - For scripting automation</li>
+      </ul>
+    </li>
+    <li>The pipeline stages are organized into:
+      <ul>
+        <li><strong>Build</strong> - Maven builds the Java Spring Boot service</li>
+        <li><strong>Package</strong> - Docker builds and tags the image</li>
+        <li><strong>Publish</strong> - Image is pushed to GitLab’s container registry</li>
+        <li><strong>Deploy</strong> - Bash scripts and Helm charts apply updates to Kubernetes. A GitLab Project Runner deployed in the k8s cluster executes this stage</li>
+        <li><strong>Test</strong> - Static Application Security Testing (SAST) is used to discover vulnerabilities in the source code, or identify security issues during development when they’re easiest and most cost-effective to fix</li>
+        <li><strong>Secret Detection</strong> - Secret Detection customization to scan deployed containers for sensitive credential leaks</li>
+      </ul>
+    </li>
+    <li>Helm values are templated per environment (dev/staging/prod).</li>
+    <li>Each deployment includes instrumentation hooks for observability.</li>
+  </ol>
+
+  <h2>Features Implemented</h2>
+  <ul>
+    <li>Private container registry integration using GitLab's built-in registry</li>
+    <li>Custom Docker image with pre-installed tools to speed up execution</li>
+    <li>Pipeline YAML includes linting, image tagging, and Helm chart validation</li>
+    <li>Declarative deployment through version-controlled Helm charts</li>
+    <li>Environment variables and secrets injected securely through GitLab CI/CD settings</li>
+  </ul>
+
+  <h2>Custom Docker Image</h2>
+  <p>The GitLab Runner executes jobs inside a custom Docker image hosted in a private registry. The image includes:</p>
+  <ul>
+    <li>Helm</li>
+    <li>kubectl</li>
+    <li>Maven</li>
+    <li>Git, Bash, and essential tools</li>
+  </ul>
+  <p>This reduces setup time during builds and ensures consistent behavior across stages.</p>
+
+  <h2>Example Snippets</h2>
+  <pre><code>.gitlab-ci.yml
+
+image: registry.gitlab.com/kunle/tools:ci-helm-kubectl
+
+stages:
+  - build
+  - deploy
+
+build-app:
+  stage: build
+  script:
+    - mvn clean package
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+
+deploy-to-k8s:
+  stage: deploy
+  script:
+    - helm upgrade --install app ./helm-chart --namespace dev --set image.tag=$CI_COMMIT_SHORT_SHA
+</code></pre>
+
+  <h2>Use Cases</h2>
+  <ul>
+    <li>Fully automated delivery pipeline for containerized Spring Boot apps</li>
+    <li>Repeatable Helm-based deployments across namespaces/environments</li>
+    <li>Fast iterative testing for local-to-cluster development flow</li>
+  </ul>
+
+  <h2>Challenges Solved</h2>
+  <ul>
+    <li>Time lost to manual deployments and inconsistent dev environments</li>
+    <li>Need for isolated, reproducible CI/CD runners across projects</li>
+    <li>Environment drift between staging and production clusters</li>
+  </ul>
+
+  <h2>Demo or Walkthrough</h2>
+  <p>This project is hosted in a private GitLab repo. Interested reviewers can contact me for a walkthrough of the CI/CD pipeline YAML, runner image Dockerfile, and Helm chart structure.</p>
+  <p>Request access by reaching out via <a href="mailto:info.cideveloper@gmail.com">email</a>.</p>
+</section>
+
