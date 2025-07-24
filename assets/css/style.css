@@ -22,7 +22,7 @@ body {
 
 /* Container for main content */
 .container {
-  max-width: none;
+  max-width: 1300;
   margin: 2rem auto;
   padding: 0 1rem;
   flex-grow: 1;
@@ -145,7 +145,7 @@ nav ul li a.active {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  max-width: 900px;
+  max-width: 1300px;
   margin: 0 auto 3rem auto;
 }
 
@@ -176,6 +176,11 @@ nav ul li a.active {
   color: #3498db;
   font-weight: 600;
   text-decoration: none;
+}
+
+.content a.btn {
+  color: #fff;
+  font-weight: bold;
 }
 
 .content a:hover {
