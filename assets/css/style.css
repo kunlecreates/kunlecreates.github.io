@@ -200,11 +200,15 @@ nav ul li a.active {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background-color: #19a6ec;
-  color: rgb(5, 9, 20);
+  color: rgb(243, 243, 245);
   text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
   border-radius: 6px;
   font-weight: 600;
+  font-size: 1.1rem;
   transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
