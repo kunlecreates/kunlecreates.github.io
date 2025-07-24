@@ -22,7 +22,7 @@ body {
 
 /* Container for main content */
 .container {
-  max-width: 960px;
+  max-width: none;
   margin: 2rem auto;
   padding: 0 1rem;
   flex-grow: 1;
