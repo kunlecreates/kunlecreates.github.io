@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="/assets/css/style.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5S10QLT9"></script>
-    <script>
+    <script type="text/plain" data-type="text/javascript" data-cookieconsent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4F5S10QLT9"></script>
+    <script type="text/plain" data-type="text/javascript" data-cookieconsent="analytics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -50,6 +52,46 @@
         </ul>
       </nav>
     </header>
+    
+    <script>
+    window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: "#000" },
+          button: { background: "#f1d600" }
+        },
+        type: "opt-in",
+        content: {
+          message: "We use cookies for analytics. Accept to help us improve.",
+          dismiss: "Accept",
+          deny: "Decline",
+          link: "Learn more",
+          href: "/privacy-policy.html"
+        },
+        onInitialise: function (status) {
+          if (status == 'allow') {
+            enableAnalytics();
+          }
+        },
+        onStatusChange: function(status) {
+          if (status == 'allow') {
+            enableAnalytics();
+          }
+        }
+      });
+
+      function enableAnalytics() {
+        var scripts = document.querySelectorAll('[data-cookieconsent="analytics"]');
+        scripts.forEach(script => {
+          var s = document.createElement("script");
+          s.type = script.getAttribute("data-type") || "text/javascript";
+          if (script.src) s.src = script.src;
+          s.innerHTML = script.innerHTML;
+          document.head.appendChild(s);
+        });
+      }
+    });
+    </script>
 
     <main class="content">    
         {{ content }}

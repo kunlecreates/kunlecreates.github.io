@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4F5S10QLT9"></script>
-  <script>
+  <script type="text/plain" data-type="text/javascript" data-cookieconsent="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-4F5S10QLT9"></script>
+  <script type="text/plain" data-type="text/javascript" data-cookieconsent="analytics">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-4F5S10QLT9');
   </script>
-  
+
   <!-- Meta Tags for SEO -->
   <meta name="description" content="Kunle Creates - Engineering Workflows, CI/CD Pipelines, Observability, and Java Projects Portfolio">
   <meta name="keywords" content="Java, Kubernetes, CI/CD, Spring Boot, Microservices, DevOps, Observability, GitHub Pages">
@@ -38,6 +38,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
   <link rel="manifest" href="/assets/images/site.webmanifest">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 </head>
 <body>
 
@@ -53,6 +56,46 @@
       <li><a href="/projects/contact/" class="{% if page.url == '/projects/contact/' %}active{% endif %}">Contact</a></li>
     </ul>
   </nav>
+
+  <script>
+    window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: "#000" },
+          button: { background: "#f1d600" }
+        },
+        type: "opt-in",
+        content: {
+          message: "We use cookies for analytics. Accept to help us improve.",
+          dismiss: "Accept",
+          deny: "Decline",
+          link: "Learn more",
+          href: "/privacy-policy.html"
+        },
+        onInitialise: function (status) {
+          if (status == 'allow') {
+            enableAnalytics();
+          }
+        },
+        onStatusChange: function(status) {
+          if (status == 'allow') {
+            enableAnalytics();
+          }
+        }
+      });
+
+      function enableAnalytics() {
+        var scripts = document.querySelectorAll('[data-cookieconsent="analytics"]');
+        scripts.forEach(script => {
+          var s = document.createElement("script");
+          s.type = script.getAttribute("data-type") || "text/javascript";
+          if (script.src) s.src = script.src;
+          s.innerHTML = script.innerHTML;
+          document.head.appendChild(s);
+        });
+      }
+    });
+  </script>
 
   <main class="container">
     {{ content }}
