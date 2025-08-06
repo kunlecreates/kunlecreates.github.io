@@ -20,7 +20,7 @@ This repository contains the code powering my **GitHub Pages** portfolio site. I
 - Observability and monitoring best practices
 - Interactive frontend demos and documentation
 
-If you are a developer or technical assessor, this is where you can preview my technical breadth and delivery focus.
+If you are a developer or technical assessor, this is where you can preview my technical breadth and delivery focus. For security and confidentiality reasons, the main source codes of each project remain in Private Repositories. You can make a Repository access request by contacting me for collaborations on projects.
 
 ---
 
