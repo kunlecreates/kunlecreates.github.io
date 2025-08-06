@@ -12,7 +12,8 @@ permalink: /projects/observability-stack/
 
 <section class="content">
   <h2>Overview</h2>
-  <p>This project showcases a fully integrated observability stack deployed on Kubernetes, offering end-to-end visibility across microservices. The architecture collects telemetry data, processes it, and provides actionable insights through metrics, logs, and traces.</p>
+  <p>This project is a simulated case study inspired by real-world work I delivered in a client engagement. All proprietary assets have been omitted to preserve client confidentiality, but the architecture and engineering reflect actual problem-solving and implementation strategies.</p>
+  <p>It showcases a fully integrated observability stack deployed on Kubernetes, offering end-to-end visibility across microservices. The architecture collects telemetry data, processes it, and provides actionable insights through metrics, logs, and traces.</p>
 
   <h2>Architecture Diagram</h2>
   <img src="/assets/images/observability-diagram.png" alt="Observability Stack Diagram" class="diagram">
@@ -59,7 +60,7 @@ permalink: /projects/observability-stack/
     <li>Apply custom resource definitions (CRDs) for each observability component</li>
     <li>Deploy microservices with OpenTelemetry instrumentation</li>
     <li>Route data to Prometheus, Jaeger, and Elasticsearch for visualization</li>
-    <li>Secure dashboards with OAuth2 Proxy behind NGINX Ingress</li>
+    <li>Secure dashboards with Cloudflare Zero Trust; backend services are deployed behind Ingress NGINX as the API gateway</li>
   </ol>
 
   <h2>Challenges Solved</h2>

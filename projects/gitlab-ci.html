@@ -11,7 +11,8 @@ permalink: /projects/gitlab-ci/
 
 <section class="content">
   <h2>Overview</h2>
-  <p>This project demonstrates a production-grade GitLab CI/CD pipeline designed to automate the build, containerization, and deployment of Java-based applications into a Kubernetes environment. The pipeline uses a custom Docker image preloaded with key DevOps tools to ensure fast, consistent, and isolated builds.</p>
+  <p>This project is a simulated case study inspired by real-world work I delivered in a client engagement. All proprietary assets have been omitted to preserve client confidentiality, but the architecture and engineering reflect actual problem-solving and implementation strategies.</p>
+  <p>The project demonstrates a production-grade GitLab CI/CD pipeline designed to automate the build, containerization, and deployment of Java-based applications into a Kubernetes environment. The pipeline uses a custom Docker image preloaded with key DevOps tools to ensure fast, consistent, and isolated builds.</p>
 
   <h2>Pipeline Architecture</h2>
   <img src="/assets/images/gitlab-ci.png" alt="CI/CD Pipeline Diagram" class="diagram" />
@@ -40,7 +41,7 @@ permalink: /projects/gitlab-ci/
       <ul>
         <li><strong>Build</strong> - Maven builds the Java Spring Boot service</li>
         <li><strong>Package</strong> - Docker builds and tags the image</li>
-        <li><strong>Publish</strong> - Image is pushed to GitLab’s container registry</li>
+        <li><strong>Publish</strong> - Image is pushed to GitLab's container registry</li>
         <li><strong>Deploy</strong> - Bash scripts and Helm charts apply updates to Kubernetes. A GitLab Project Runner deployed in the k8s cluster executes this stage</li>
         <li><strong>Test</strong> - Static Application Security Testing (SAST) is used to discover vulnerabilities in the source code, or identify security issues during development when they’re easiest and most cost-effective to fix</li>
         <li><strong>Secret Detection</strong> - Secret Detection customization to scan deployed containers for sensitive credential leaks</li>

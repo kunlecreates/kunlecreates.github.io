@@ -1,14 +1,12 @@
 # Kunle Creates - Portfolio Website
 
-**https://kunlecreates.org**
-
 This is the **source repository** for my professional portfolio website, hosted at:
 [https://kunlecreates.org](https://kunlecreates.org)
 
 > Explore how I design, build, and deploy production-ready software systems and applications using cloud-native technologies, DevOps, and modern Java stacks.
 
 > **Client Confidentiality Notice**:\
- Some showcased projects are **simulated case studies** based on real-world engagements I contributed to as part of larger client contracts. To protect proprietary information, these projects were **independently re-architected and implemented** using public/open-source technologies.\
+ Some showcased projects are **simulated case studies** based on real-world engagements which I contributed to as part of larger client contracts. To protect proprietary information, these projects were **independently re-architected and implemented** using public/open-source technologies.\
  While they exclude any client-owned source code or sensitive data, they accurately reflect the technical challenges, architectural decisions, and DevOps workflows I led in those projects.
 
 ---
@@ -47,12 +45,16 @@ If you are a developer or technical assessor, this is where you can preview my t
 
 This portfolio presents a curated set of personal and academic projects with production-grade quality, including:
 
-- **Cloud-native microservices** deployed on Kubernetes with GitLab CI/CD and Helm.
+- **Cloud-native microservices** deployed on Kubernetes with GitLab CI/CD and Helm. *Simulated Case Study*\
+  <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
 - **Java-based applications**, including:
-  - A modular **Twitter-clone microservices** app (Spring Boot, JWT, observability stack, CI/CD).
-  - A monolithic **Java EE grocery store web app**, with ongoing migration to microservices.
+  - A modular **Socials microservices** app (Spring Boot, JWT, observability stack, CI/CD). *Simulated Case Study*\
+  <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
+  - A monolithic **Java EE grocery store web app**, with ongoing migration to microservices. *Simulated Case Study*\
+  <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
   - A classic **Java Swing Solitaire game**, playable directly in the browser via CheerpJ, and a downloadable zip file for a run-ready playing experience in Windows OS environment.
-- **Enterprise Observability Stack**, an end-to-end monitoring platform which is built using the OpenTelemetry ecosystem, Jaeger, Prometheus, Grafana, Elasticsearch, and Kibana.
+- **Enterprise Observability Stack**, an end-to-end monitoring platform which is built using the OpenTelemetry ecosystem, Jaeger, Prometheus, Grafana, Elasticsearch, and Kibana. *Simulated Case Study*\
+  <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
 
 Each project includes architectural diagrams, summaries, and in some cases links to live demos or source repositories.
 
