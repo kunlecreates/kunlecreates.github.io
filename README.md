@@ -46,17 +46,19 @@ If you are a developer or technical assessor, this is where you can preview my t
 This portfolio presents a curated set of personal and academic projects with production-grade quality, including:
 
 - **Cloud-native microservices** deployed on Kubernetes with GitLab CI/CD and Helm. \
-  *Simulated Case Study*: <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
+  *Simulated Case Study*: <i>Re-created independently to protect client confidentiality...</i>
 
 - **Java-based applications**, including:
   - A modular **Socials microservices** app (Spring Boot, JWT, observability stack, CI/CD). \
-    *Simulated Case Study*: <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
+    *Simulated Case Study*: <i>Re-created independently to protect client confidentiality...</i>
+
   - A monolithic **Java EE grocery store web app**, with ongoing migration to microservices. \
-    *Simulated Case Study*: <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
+    *Simulated Case Study*: <i>Re-created independently to protect client confidentiality...</i>
+
   - A classic **Java Swing Solitaire game**, playable directly in the browser via CheerpJ, and a downloadable zip file for a run-ready playing experience in Windows OS environment.
 
 - **Enterprise Observability Stack**, an end-to-end monitoring platform which is built using the OpenTelemetry ecosystem, Jaeger, Prometheus, Grafana, Elasticsearch, and Kibana. \
-  *Simulated Case Study*: <sub><i>This case study was re-created independently to protect client confidentiality...</i></sub>
+  *Simulated Case Study*: <i>Re-created independently to protect client confidentiality...</i>
 
 Each project includes architectural diagrams, summaries, and in some cases links to live demos or source repositories.
 
