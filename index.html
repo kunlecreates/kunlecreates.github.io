@@ -4,62 +4,284 @@ title: Kunle Creates - Portfolio
 ---
 
 <header class="hero">
-  <h1>Kunle Creates</h1>
-  <p>Showcasing Engineering Workflows, Production-Grade Deployments, and Real-World Application Architectures</p>
+  <h1>Kunle Ogunlana</h1>
+  <p>Platform Engineer &nbsp;·&nbsp; Distributed Systems &nbsp;·&nbsp; Production Kubernetes &nbsp;·&nbsp; Observability-Native Design</p>
 </header>
 
+<!-- Core Capabilities -->
+<section class="capabilities-section">
+  <div class="capability-tag">☸️ Platform Engineering</div>
+  <div class="capability-tag">🔗 Distributed Systems Design</div>
+  <div class="capability-tag">🔭 Production Observability</div>
+  <div class="capability-tag">📋 Contract-Driven APIs</div>
+  <div class="capability-tag">🚀 CI/CD Governance</div>
+  <div class="capability-tag">🔒 Zero-Trust Security</div>
+  <div class="capability-tag">🗄️ Polyglot Persistence</div>
+  <div class="capability-tag">🐳 GitOps · Helm · Kubernetes</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FLAGSHIP PRODUCTION PLATFORM -->
+<!-- ═══════════════════════════════════════════════════════════ -->
 <section class="content">
-  <h2>Featured Projects</h2>
+  <div class="section-divider">
+    <span class="section-label">Flagship Production Platform</span>
+  </div>
+
+  <div class="featured-project-card">
+    <div class="featured-project-body">
+      <div class="featured-project-meta">
+        <span class="tier-badge tier-production">🟢 Production · Live</span>
+        <span class="tier-badge tier-meta">4 Services &nbsp;|&nbsp; 330+ Tests &nbsp;|&nbsp; 85%+ Coverage &nbsp;|&nbsp; ~5 min Deploy</span>
+      </div>
+      <h2>ShopEase — Enterprise Microservices Platform</h2>
+      <p>A full-stack, cloud-native eCommerce platform demonstrating enterprise engineering at scale. Four independently deployable microservices across polyglot persistence (Oracle, PostgreSQL, MS SQL Server), a five-layer test pyramid with Testcontainers integration tests against real databases, OpenTelemetry auto-instrumentation, and zero-trust NetworkPolicies — all deployed via GitOps on Kubernetes.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Java 21</span>
+        <span class="tech-tag">Spring Boot 3</span>
+        <span class="tech-tag">NestJS 10</span>
+        <span class="tech-tag">Python · FastAPI</span>
+        <span class="tech-tag">Next.js 15</span>
+        <span class="tech-tag">Oracle DB 23c</span>
+        <span class="tech-tag">PostgreSQL 17</span>
+        <span class="tech-tag">MS SQL Server</span>
+        <span class="tech-tag">Testcontainers</span>
+        <span class="tech-tag">OpenTelemetry</span>
+        <span class="tech-tag">Playwright E2E</span>
+        <span class="tech-tag">GitHub Actions</span>
+        <span class="tech-tag">Helm · Kubernetes</span>
+      </div>
+      <div class="featured-project-links">
+        <a href="/projects/shopease/" class="btn">View Project Details</a>
+        <a href="https://shop.kunlecreates.org" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+        <a href="/2026/03/11/shopease-platform-engineering/" class="btn btn-outline">Architecture Deep Dive →</a>
+      </div>
+    </div>
+    <div class="featured-project-pillars">
+      <div class="pillar-item">
+        <strong>Domain-Driven Design</strong>
+        <span>5 bounded contexts · no cross-service FK constraints</span>
+      </div>
+      <div class="pillar-item">
+        <strong>Contract-Driven APIs</strong>
+        <span>18 API test files · schema validation + multi-service flow tests</span>
+      </div>
+      <div class="pillar-item">
+        <strong>Production Observability</strong>
+        <span>Traces (Jaeger) · Metrics (Prometheus/Grafana) · Logs (ECK)</span>
+      </div>
+      <div class="pillar-item pillar-item-highlight">
+        <strong>CI/CD Governance &amp; Coverage Authority</strong>
+        <span>5 parallel pipelines · Testcontainers real DBs · <em>Coverage Authority workflow</em> aggregates coverage across all services, auto-updates badge on every push — platform-level quality visibility, not per-service silos</span>
+      </div>
+      <div class="pillar-item">
+        <strong>Zero-Trust Networking</strong>
+        <span>Deny-all default · per-service explicit NetworkPolicies</span>
+      </div>
+      <div class="pillar-item">
+        <strong>Polyglot Persistence</strong>
+        <span>Best-fit DB per service · database-per-service pattern</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PRODUCTION INFRASTRUCTURE PROJECTS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="content">
+  <div class="section-divider">
+    <span class="section-label">Production Infrastructure &amp; Platform Engineering</span>
+  </div>
+
   <div class="project-grid">
 
     <div class="project-card">
+      <span class="tier-badge tier-production card-tier">Production</span>
       <img src="/assets/images/observability-diagram.png" alt="Observability Stack Diagram">
-      <span title="This project is a simulated case study based on real-world client work. Proprietary content has been excluded." style="background: #ffffff; padding: 4px 8px; border-radius: 6px; font-size: 0.9em; cursor: help;">
-        <h3>Observability Stack on Kubernetes</h3>
-        <p>Enterprise-grade observability architecture using OpenTelemetry Collector, Jaeger, Prometheus, Grafana, and ECK, fully automated with Helm and secured with OAuth2 Proxy.</p>
-      </span>
+      <h3>Full-Stack Observability on Kubernetes</h3>
+      <p>Enterprise observability architecture: OpenTelemetry Collector, Jaeger distributed tracing, Prometheus + Grafana metrics, and Elasticsearch/Kibana (ECK) for log aggregation. Deployed with Helm operators, secured with Cloudflare Zero Trust + OAuth2 Proxy — no public endpoints.</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">OpenTelemetry</span>
+        <span class="tech-tag">Jaeger</span>
+        <span class="tech-tag">Prometheus</span>
+        <span class="tech-tag">Grafana</span>
+        <span class="tech-tag">ECK</span>
+        <span class="tech-tag">Helm</span>
+      </div>
       <a href="/projects/observability-stack/">View Project</a>
     </div>
-    
+
     <div class="project-card">
+      <span class="tier-badge tier-production card-tier">Production</span>
+      <img src="/assets/images/observability-diagram.png" alt="Database as a Service on Kubernetes">
+      <h3>Database-as-a-Service on Kubernetes</h3>
+      <p>Kubernetes-native deployments for Oracle DB 23c, PostgreSQL 17, MS SQL Server 2022, and MySQL 8 InnoDBCluster. Automated schema lifecycle (deploy → schema-load → seed → rollback), least-privilege app users per service, in-memory password substitution, and namespace isolation. Powers the ShopEase polyglot persistence layer.</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">Oracle DB 23c</span>
+        <span class="tech-tag">PostgreSQL 17</span>
+        <span class="tech-tag">MS SQL Server</span>
+        <span class="tech-tag">MySQL 8</span>
+        <span class="tech-tag">Kubernetes</span>
+        <span class="tech-tag">Helm</span>
+      </div>
+      <a href="/projects/shopease/">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <span class="tier-badge tier-devops card-tier">DevOps</span>
       <img src="/assets/images/gitlab-ci.png" alt="CI/CD Pipeline Diagram">
-      <span title="This project is a simulated case study based on real-world client work. Proprietary content has been excluded." style="background: #ffffff; padding: 4px 8px; border-radius: 6px; font-size: 0.9em; cursor: help;">
-        <h3>GitLab CI/CD pipeline automation</h3>
-        <p>A GitLab CI/CD pipeline that pushes Java applications to a private GitLab container registry. A personal custom Docker image was built preloaded with tools such as git, ca-certificates. openssl, gnupg, curl, Vault, Helm, kubectl, and bash utilities to execute deployment stages via scripted automation.</p>
-      </span>
+      <h3>GitLab CI/CD Pipeline Automation</h3>
+      <p>Multi-stage GitLab CI/CD pipeline for containerised Java applications. Custom Docker CI image preloaded with Vault, Helm, kubectl, and deployment tooling. Automated image builds, registry pushes to GHCR, and Helm-driven Kubernetes deployments with environment-specific values.</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">GitLab CI/CD</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Helm</span>
+        <span class="tech-tag">Vault</span>
+        <span class="tech-tag">Kubernetes</span>
+      </div>
       <a href="/projects/gitlab-ci/">View Project</a>
-  </div>
-
-    <div class="project-card">
-      <img src="/assets/images/grocery-mockup.png" alt="Java EE App Screenshot">
-      <span title="This project is a simulated case study based on real-world client work. Proprietary content has been excluded." style="background: #ffffff; padding: 4px 8px; border-radius: 6px; font-size: 0.9em; cursor: help;">
-        <h3>Monolithic Java EE Web Application</h3>
-        <p>Dynamic web application for administrative operations using JSP, Servlets, JDBC, and MySQL/HSQLDB. Currently undergoing microservice decomposition and Spring Boot migration.</p>
-      </span>
-      <a href="/projects/grocery-store/">View Project</a>
-    </div>
-
-    <div class="project-card">
-      <img src="/assets/images/solitaire-mockup.png" alt="Swing Solitaire">
-      <h3>Java Swing Solitaire Game</h3>
-      <p>Desktop Solitaire game designed with MVC principles using Java Swing and AWT. Features intuitive drag-and-drop interface and scoring logic with core Java fundamentals.</p>
-      <a href="/projects/swing-solitaire/">View Project</a>
-    </div>
-  
-    <div class="project-card">
-      <img src="/assets/images/microservices-arch.png" alt="Microservices Architecture">
-      <span title="This project is a simulated case study of the Twitter socials app developed as a school project. It does not include any proprietary source code from Twitter." style="background: #ffffff; padding: 4px 8px; border-radius: 6px; font-size: 0.9em; cursor: help;">
-        <h3>Twitter-Clone Microservices Application</h3>
-        <p>Modular cloud-native application built with Spring Boot, deployed on Kubernetes, integrated with GitLab CI/CD, Helm, and full observability stack. Secure JWT-based authentication.</p>
-      </span>
-      <a href="/projects/twitter-clone/">View Project</a>
     </div>
 
   </div>
 </section>
-<br></br>
-<br></br>
-<h2>About Me</h2>
-  <p>I am Kunle Ogunlana, a Cybersecurity professional, software developer and DevOps enthusiast passionate about cloud-native design, observability, and secure delivery pipelines.</p>
-  <p>I have built this site to provide insight into my end-to-end solution capabilities—from design and development to deployment and monitoring.</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FOUNDATION WORK -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="content">
+  <div class="section-divider">
+    <span class="section-label">Foundation Work</span>
+  </div>
+  <p class="section-note">Earlier projects demonstrating core software engineering principles — application architecture, design patterns, and full-stack fundamentals.</p>
+
+  <div class="project-grid">
+
+    <div class="project-card">
+      <span class="tier-badge tier-foundation card-tier">Foundation</span>
+      <img src="/assets/images/microservices-arch.png" alt="Microservices Architecture">
+      <h3>Twitter-Clone Microservices</h3>
+      <p>Spring Boot microservices (User, Message, Gateway) on Kubernetes with GitLab CI/CD, Helm deployments, JWT authentication, and an integrated observability stack (OTel + Jaeger + Prometheus).</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">Spring Boot</span>
+        <span class="tech-tag">Kubernetes</span>
+        <span class="tech-tag">Helm</span>
+        <span class="tech-tag">JWT</span>
+      </div>
+      <a href="/projects/twitter-clone/">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <span class="tier-badge tier-foundation card-tier">Foundation</span>
+      <img src="/assets/images/grocery-mockup.png" alt="Java EE App Screenshot">
+      <h3>Java EE Grocery Web Application</h3>
+      <p>Monolithic dynamic web application using JSP, Servlets, JDBC, and MySQL/HSQLDB. Demonstrated full-stack Java EE patterns as the baseline for microservice decomposition.</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">Java EE</span>
+        <span class="tech-tag">JSP</span>
+        <span class="tech-tag">JDBC</span>
+        <span class="tech-tag">MySQL</span>
+      </div>
+      <a href="/projects/grocery-store/">View Project</a>
+    </div>
+
+    <div class="project-card">
+      <span class="tier-badge tier-foundation card-tier">Foundation</span>
+      <img src="/assets/images/solitaire-mockup.png" alt="Swing Solitaire">
+      <h3>Java Swing Solitaire Game</h3>
+      <p>Desktop Solitaire implementing MVC architecture with Java Swing and AWT. Drag-and-drop interface, game state machine, and scoring logic — demonstrating core OOP design principles.</p>
+      <div class="tech-tags card-tags">
+        <span class="tech-tag">Java Swing</span>
+        <span class="tech-tag">AWT</span>
+        <span class="tech-tag">MVC</span>
+      </div>
+      <a href="/projects/swing-solitaire/">View Project</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- FEATURED WRITING -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="content">
+  <div class="section-divider">
+    <span class="section-label">Featured Writing</span>
+  </div>
+
+  <div class="blog-cards">
+
+    <div class="blog-card blog-card-featured">
+      <div class="blog-card-tag">Database Engineering · Platform Engineering</div>
+      <h3><a href="/2026/03/12/shopease-dbaas-kubernetes/">Designing a Database-as-a-Service Layer for Kubernetes Microservices</a></h3>
+      <p>How I provisioned Oracle DB 23c, PostgreSQL 17, MS SQL Server 2022, and MySQL 8 InnoDBCluster on Kubernetes for the ShopEase platform — engine selection rationale, schema lifecycle automation, least-privilege security, in-memory credential substitution, and namespace isolation as a defence-in-depth layer.</p>
+      <div class="blog-meta">
+        <span>March 2026</span>
+        <span>14 min read</span>
+        <span class="blog-tags-inline">
+          <span class="tech-tag">Oracle DB</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">SQL Server</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Security</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-tag">Platform Engineering · Architecture</div>
+      <h3><a href="/2026/03/11/shopease-platform-engineering/">Building a Production-Grade Microservices Platform on Kubernetes</a></h3>
+      <p>An architectural deep dive into ShopEase — covering Domain-Driven design decisions, polyglot language choices, contract-driven API testing, CI/CD governance, OpenTelemetry auto-instrumentation, and zero-trust NetworkPolicies. The thinking behind 330+ tests across five layers and a five-minute GitOps deployment loop.</p>
+      <div class="blog-meta">
+        <span>March 2026</span>
+        <span>18 min read</span>
+        <span class="blog-tags-inline">
+          <span class="tech-tag">DDD</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">Observability</span>
+          <span class="tech-tag">Contract Testing</span>
+          <span class="tech-tag">CI/CD</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-tag">Observability · DevOps</div>
+      <h3><a href="/2025/06/20/observability_stack_blog/">Designing a Production-Grade Observability Stack on Kubernetes</a></h3>
+      <p>How I built a cloud-native observability system with full coverage across logs, metrics, and traces using OpenTelemetry Collector, Jaeger, Prometheus/Grafana, and ECK — secured behind Cloudflare Zero Trust.</p>
+      <div class="blog-meta">
+        <span>June 2025</span>
+        <span>4 min read</span>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-card-tag">CI/CD · Kubernetes</div>
+      <h3><a href="/2025/06/18/ci-cd-helm-deployment/">Implementing CI/CD and Helm for Cloud-Native Application Deployment</a></h3>
+      <p>How CI/CD pipelines and Helm charts combine to create robust, repeatable Kubernetes deployments — secrets management, multi-service dependencies, and idempotent release strategies.</p>
+      <div class="blog-meta">
+        <span>June 2025</span>
+        <span>4 min read</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:1.5rem;">
+    <a href="/blog/" class="btn btn-outline">All Posts →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- ABOUT -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<section class="content">
+  <div class="section-divider">
+    <span class="section-label">About</span>
+  </div>
+  <p>I am <strong>Kunle Ogunlana</strong> — a platform engineer, software developer, and cybersecurity professional building cloud-native systems that are production-ready from day one.</p>
+  <p>My engineering practice centres on building systems that are <strong>independently deployable, jointly observable, and collectively trustworthy</strong>. I apply Domain-Driven Design to service boundaries, enforce API contracts between teams through automated testing, instrument every service for distributed tracing from the start, and treat the network as untrusted by default.</p>
+  <p>ShopEase is the culmination of this practice — a live, deployed platform demonstrating enterprise-grade patterns across the full stack: microservice decomposition, polyglot persistence, Testcontainers integration testing, five-layer CI/CD governance, auto-instrumented observability, and zero-trust Kubernetes networking.</p>
+  <p><a href="mailto:info.cideveloper@gmail.com">info.cideveloper@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/kunlecreates" target="_blank" rel="noopener noreferrer">GitHub ↗</a></p>
+</section>
 

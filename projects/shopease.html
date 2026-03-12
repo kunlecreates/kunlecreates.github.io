@@ -1,0 +1,236 @@
+---
+layout: default
+title: ShopEase — Production-Grade Microservices Platform
+permalink: /projects/shopease/
+---
+
+<header class="hero">
+  <h1>ShopEase Platform</h1>
+  <p>Production-Grade Microservices · Polyglot Persistence · 5-Layer Test Pyramid · Full Observability</p>
+</header>
+
+<section class="content">
+
+  <div class="project-status-bar">
+    <span class="status-badge status-live">🟢 Live in Production</span>
+    <span class="status-badge status-meta">4 Services &nbsp;|&nbsp; 330+ Tests &nbsp;|&nbsp; 85%+ Coverage &nbsp;|&nbsp; ~5 min Deploy</span>
+    <a href="https://shop.kunlecreates.org" class="btn btn-sm" target="_blank" rel="noopener noreferrer">View Live ↗</a>
+    <a href="https://github.com/kunlecreates/shop-ease-enterprise-app" class="btn btn-sm btn-secondary" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+  </div>
+
+  <h2>Overview</h2>
+  <p>ShopEase is a full-stack, cloud-native eCommerce platform built to production standards. Every service is independently deployable, domain-modelled behind a bounded context, continuously integrated via a five-layer test pyramid, and instrumented end-to-end with OpenTelemetry auto-instrumentation. The platform runs on Kubernetes with GitOps deployment and zero-trust network policies.</p>
+
+  <p>This is not a tutorial project — it is a living, deployed system demonstrating enterprise engineering patterns that are often described but rarely shown together in a single repository.</p>
+
+  <h2>Platform Architecture</h2>
+  <pre class="arch-block">
+┌──────────────────────────────────────────────────────────────────┐
+│               Cloudflare Tunnel + Access                         │
+│               shop.kunlecreates.org                              │
+└────────────────────────┬─────────────────────────────────────────┘
+                         │
+┌────────────────────────▼─────────────────────────────────────────┐
+│                  NGINX Ingress Controller                        │
+│           (TLS termination, path-based routing)                  │
+└──────┬──────────────┬──────────────┬──────────────┬──────────────┘
+       │              │              │              │
+  /frontend      /api/user      /api/products   /api/orders
+       │              │              │              │
+  ┌─────────┐  ┌──────────┐  ┌─────────┐   ┌─────────────┐
+  │frontend │  │user-svc  │  │product  │   │order-service│
+  │Next.js  │  │Java 21   │  │NestJS   │   │Java 21      │
+  │         │  │Spring    │  │Node.js  │   │Spring Boot  │
+  │         │  │Oracle DB │  │Postgres │   │MS SQL Server│
+  └─────────┘  └──────────┘  └─────────┘   └──────┬──────┘
+                                                   │ async notify
+                                             ┌─────▼──────┐
+                                             │notif-service│
+                                             │Python 3.12  │
+                                             │FastAPI/SMTP │
+                                             └────────────┘
+</pre>
+
+  <h2>Service Breakdown</h2>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-icon">🔐</span>
+        <strong>user-service</strong>
+        <span class="tech-badge">Java 21</span>
+        <span class="tech-badge">Spring Boot 3</span>
+        <span class="tech-badge">Oracle DB 23c</span>
+      </div>
+      <p>Full identity &amp; auth domain: registration, JWT/RS256, email verification, password reset, RBAC (CUSTOMER/ADMIN), and login audit logging. Every token value is stored as a bcrypt hash — plaintext secrets never persist.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-icon">🏷️</span>
+        <strong>product-service</strong>
+        <span class="tech-badge">Node.js 20</span>
+        <span class="tech-badge">NestJS 10</span>
+        <span class="tech-badge">PostgreSQL 17</span>
+      </div>
+      <p>Product catalogue, full-text search (TSVECTOR), inventory tracking, and stock movement audit. Prices stored as integer cents (no floating-point). JSONB attributes column handles flexible per-SKU metadata without schema migrations.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-icon">🛒</span>
+        <strong>order-service</strong>
+        <span class="tech-badge">Java 21</span>
+        <span class="tech-badge">Spring Boot 3</span>
+        <span class="tech-badge">MS SQL Server 2022</span>
+      </div>
+      <p>Cart lifecycle (OPEN → CHECKED_OUT → ABANDONED), order management, payment metadata. Shipping address snapshotted at checkout — historical orders are immutable. Only display-safe payment metadata stored (PCI scope reduction).</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <span class="service-icon">📧</span>
+        <strong>notification-service</strong>
+        <span class="tech-badge">Python 3.12</span>
+        <span class="tech-badge">FastAPI</span>
+        <span class="tech-badge">Stateless</span>
+      </div>
+      <p>Stateless email dispatcher. Consumes order events, renders Jinja2 templates, dispatches confirmation emails via SMTP. No database — trivially scalable and independently testable. Async call from order-service post-checkout.</p>
+    </div>
+  </div>
+
+  <h2>Test Pyramid (330+ Tests)</h2>
+  <div class="test-pyramid-section">
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Location</th>
+          <th>Tools</th>
+          <th>Blocks PR?</th>
+          <th>Tests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Unit</strong></td>
+          <td><code>services/*/test/</code></td>
+          <td>JUnit 5, Jest, pytest</td>
+          <td>✅ Yes</td>
+          <td>277</td>
+        </tr>
+        <tr>
+          <td><strong>Frontend Unit</strong></td>
+          <td><code>frontend/__tests__/</code></td>
+          <td>Jest</td>
+          <td>✅ Yes</td>
+          <td>53</td>
+        </tr>
+        <tr>
+          <td><strong>Integration</strong></td>
+          <td><code>services/*/test/integration/</code></td>
+          <td>Testcontainers (real DBs)</td>
+          <td>✅ Yes</td>
+          <td>~40</td>
+        </tr>
+        <tr>
+          <td><strong>API Contracts</strong></td>
+          <td><code>api-tests/</code></td>
+          <td>Supertest, RestAssured</td>
+          <td>✅ Post-deploy</td>
+          <td>18 files</td>
+        </tr>
+        <tr>
+          <td><strong>E2E</strong></td>
+          <td><code>e2e/</code></td>
+          <td>Playwright</td>
+          <td>❌ Monitoring</td>
+          <td>7 spec files</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>CI/CD Pipeline</h2>
+  <p>GitHub Actions → GHCR → Kubernetes Helm deploy. All five services build in parallel. Total time from git push to live deployment: ~5 minutes.</p>
+
+  <div class="coverage-callout">
+    <div class="coverage-callout-icon">📊</div>
+    <div>
+      <h4>Coverage Authority Workflow — Platform-Level Quality Visibility</h4>
+      <p>The Coverage Authority is a dedicated GitHub Actions workflow that runs <em>after all five service CI pipelines complete</em>. It collects the per-service coverage artefacts, computes a weighted aggregate across the entire platform (∼85%+ current), and auto-publishes the updated badge to the <code>coverage-badge</code> branch on every push. This is not per-service coverage tracking — it is a cross-platform signal that treats quality as a platform-level concern. A single service dropping below threshold fails the aggregate gate and alerts the team before any deployment proceeds.</p>
+      <div class="coverage-callout-steps">
+        <span class="coverage-step">1️⃣ All 5 service CIs run in parallel</span>
+        <span class="coverage-step">2️⃣ Coverage Authority workflow triggers on completion</span>
+        <span class="coverage-step">3️⃣ Artefacts aggregated across Java, Node.js &amp; Python</span>
+        <span class="coverage-step">4️⃣ Weighted aggregate computed</span>
+        <span class="coverage-step">5️⃣ Badge auto-updated on <code>coverage-badge</code> branch</span>
+        <span class="coverage-step">6️⃣ README badge reflects live state on every push</span>
+      </div>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Fail fast</strong>: Unit tests precede integration tests in every pipeline</li>
+    <li><strong>Real databases in CI</strong>: Testcontainers prevents environment-specific failures</li>
+    <li><strong>Build once, deploy everywhere</strong>: The CI image is the exact production image</li>
+    <li><strong>Self-hosted ARC runner</strong>: GitHub Actions Runner Controller running on-cluster</li>
+  </ul>
+
+  <h2>Observability Stack</h2>
+  <p>OpenTelemetry Operator auto-injects agents — no SDK changes required in application code.</p>
+  <ul>
+    <li><strong>📊 Prometheus + Grafana</strong> — HTTP metrics, JVM heap, GC pauses, connection pool utilisation</li>
+    <li><strong>🔍 Jaeger v2</strong> — Full distributed traces across all services with per-span timing</li>
+    <li><strong>📝 Elasticsearch + Kibana (ECK)</strong> — Centrally aggregated, indexed, and searchable logs</li>
+    <li><strong>⚙️ OTel Operator</strong> — Auto-instrumentation for Java, Node.js, and Python services (40–60% overhead optimised)</li>
+  </ul>
+
+  <h2>Security Architecture</h2>
+  <ul>
+    <li><strong>JWT/RS256</strong> — Asymmetric token signing; public key distributed to verifying services</li>
+    <li><strong>Bcrypt (cost 12)</strong> — Passwords and all token values stored as hashes only</li>
+    <li><strong>HttpOnly cookies</strong> — JWT storage; eliminates XSS token theft via JavaScript</li>
+    <li><strong>Zero-trust NetworkPolicies</strong> — Deny all by default; explicit per-service ingress/egress rules</li>
+    <li><strong>Least-privilege DB users</strong> — App connects as CRUD-only role; no DDL rights at runtime</li>
+    <li><strong>Email verification</strong> — Required before full account access; tokens single-use and time-limited</li>
+    <li><strong>OWASP Top 10</strong> — Parameterised queries, CSP headers, CSRF protection, rate limiting via NGINX</li>
+  </ul>
+
+  <h2>Polyglot Persistence</h2>
+  <table class="spec-table">
+    <thead>
+      <tr><th>Service</th><th>Engine</th><th>Why This Engine</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>user-service</td>
+        <td>Oracle DB 23c Free</td>
+        <td>Complex relational auth domain. JSON constraint (<code>IS JSON</code>) for domain event outbox. Enterprise audit capability.</td>
+      </tr>
+      <tr>
+        <td>product-service</td>
+        <td>PostgreSQL 17</td>
+        <td>Native <code>TSVECTOR</code> full-text search. <code>JSONB</code> for flexible product attributes. Best-in-class ORM support for NestJS.</td>
+      </tr>
+      <tr>
+        <td>order-service</td>
+        <td>MS SQL Server 2022</td>
+        <td>Schema isolation via <code>order_svc</code> schema qualifier. Strong typing for financial transactions. Spring Data JPA + MSSQL Testcontainers.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Read More</h2>
+  <p>I wrote detailed engineering deep dives covering this platform:</p>
+  <p>
+    <a href="/2026/03/11/shopease-platform-engineering/" class="btn">Architecture Deep Dive — All 6 Engineering Pillars →</a>
+  </p>
+  <p>
+    <a href="/2026/03/12/shopease-dbaas-kubernetes/" class="btn btn-outline">Database-as-a-Service Engineering Deep Dive →</a>
+  </p>
+
+  <h2>Contact</h2>
+  <p>The source code is public on <a href="https://github.com/kunlecreates/shop-ease-enterprise-app" target="_blank" rel="noopener noreferrer">GitHub</a>. For a walkthrough of any specific service, the CI/CD pipeline configuration, or the Kubernetes manifests, <a href="mailto:info.cideveloper@gmail.com">contact me directly</a>.</p>
+
+</section>
