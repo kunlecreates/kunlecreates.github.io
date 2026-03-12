@@ -183,6 +183,14 @@ nav ul li a.active {
   font-weight: bold;
 }
 
+.content a.btn.btn-outline {
+  color: #3498db;
+}
+
+.content a.btn.btn-outline:hover {
+  color: #fff;
+}
+
 .content a:hover {
   text-decoration: underline;
 }
