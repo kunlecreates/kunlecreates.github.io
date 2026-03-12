@@ -30,16 +30,16 @@ Domain-Driven Design (DDD) provides a better lens: split by **bounded context**,
 ### The Five Bounded Contexts
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         ShopEase Platform                                    │
-├──────────────┬──────────────┬──────────────┬──────────────┬──────────────────┤
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                          ShopEase Platform                                    │
+├──────────────┬──────────────┬───────────────┬──────────────┬──────────────────┤
 │   frontend   │ user-service │product-service│ order-service│notification-svc  │
 │              │              │               │              │                  │
 │  Next.js 15  │ Identity &   │  Catalogue &  │  Carts &     │  Email delivery  │
 │  App Router  │  Auth        │  Inventory    │  Fulfilment  │  (stateless)     │
 │              │              │               │              │                  │
 │  React 19    │  Oracle DB   │  PostgreSQL   │  MS SQL Svr  │  FastAPI         │
-└──────────────┴──────────────┴──────────────┴──────────────┴──────────────────┘
+└──────────────┴──────────────┴───────────────┴──────────────┴──────────────────┘
 ```
 
 **Why this split?**
@@ -125,13 +125,13 @@ Developer Push (any service file)
 ┌────────────────────────────────────────────────────────────────────┐
 │                   GitHub Actions CI Pipeline                       │
 │                                                                    │
-│  ┌──────────────┐   ┌──────────────┐   ┌────────────────────────┐ │
-│  │  Unit Tests  │ → │ Integration  │ → │  Docker Build & Push   │ │
-│  │  (fast, <1m) │   │  Tests       │   │  → GHCR                │ │
-│  │              │   │  (real DB    │   │                        │ │
-│  │  JUnit/Jest/ │   │  via         │   │  Reuses image across   │ │
-│  │  pytest      │   │  Testcont.)  │   │  environments          │ │
-│  └──────────────┘   └──────────────┘   └────────────────────────┘ │
+│  ┌──────────────┐   ┌──────────────┐   ┌────────────────────────┐  │
+│  │  Unit Tests  │ → │ Integration  │ → │  Docker Build & Push   │  │
+│  │  (fast, <1m) │   │  Tests       │   │  → GHCR                │  │
+│  │              │   │  (real DB    │   │                        │  │
+│  │  JUnit/Jest/ │   │  via         │   │  Reuses image across   │  │
+│  │  pytest      │   │  Testcont.)  │   │  environments          │  │
+│  └──────────────┘   └──────────────┘   └────────────────────────┘  │
 │           │                  │                       │             │
 │           │ FAIL             │ FAIL                  │ SUCCESS     │
 │           ▼                  ▼                       ▼             │
@@ -140,9 +140,9 @@ Developer Push (any service file)
          │                                            │
          ▼ (post-deploy)                              ▼
 ┌─────────────────────────┐              ┌──────────────────────────┐
-│  API Contract Tests     │              │  Coverage Authority       │
-│  (live services)        │              │  (aggregate from all CIs) │
-│  Blocks promotion       │              │  Updates badge            │
+│  API Contract Tests     │              │  Coverage Authority      │
+│  (live services)        │              │  (aggregate from all CIs)│
+│  Blocks promotion       │              │  Updates badge           │
 └─────────────────────────┘              └──────────────────────────┘
          │
          ▼
@@ -266,20 +266,20 @@ Default posture: deny all ingress and egress for all pods
 ┌─────────────────────────────────────────────────────────────────┐
 │                    Allowed Communication Paths                  │
 │                                                                 │
-│  NGINX Ingress → frontend           (port 3000)                │
-│  NGINX Ingress → user-service       (port 8080)                │
-│  NGINX Ingress → product-service    (port 3001)                │
-│  NGINX Ingress → order-service      (port 8081)                │
+│  NGINX Ingress → frontend           (port 3000)                 │
+│  NGINX Ingress → user-service       (port 8080)                 │
+│  NGINX Ingress → product-service    (port 3001)                 │
+│  NGINX Ingress → order-service      (port 8081)                 │
 │                                                                 │
-│  frontend → user-service            (JWT validation proxy)     │
-│  frontend → product-service         (catalogue proxy)          │
-│  frontend → order-service           (cart/order proxy)         │
+│  frontend → user-service            (JWT validation proxy)      │
+│  frontend → product-service         (catalogue proxy)           │
+│  frontend → order-service           (cart/order proxy)          │
 │                                                                 │
-│  order-service → notification-svc   (order confirmation)       │
-│  order-service → product-service    (inventory reservation)    │
+│  order-service → notification-svc   (order confirmation)        │
+│  order-service → product-service    (inventory reservation)     │
 │                                                                 │
-│  All services → Oracle/PG/MSSQL     (own database only)        │
-│  All services → OTEL Collector      (telemetry egress)         │
+│  All services → Oracle/PG/MSSQL     (own database only)         │
+│  All services → OTEL Collector      (telemetry egress)          │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
