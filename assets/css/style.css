@@ -22,7 +22,7 @@ body {
 
 /* Container for main content */
 .container {
-  max-width: 1300;
+  max-width: 1300px;
   margin: 2rem auto;
   padding: 0 1rem;
   flex-grow: 1;
@@ -56,7 +56,7 @@ body {
 
 /* Navigation bar */
 nav {
-  width: 100vw;
+  width: 100%;
   background-color: #222;
   padding: 0.5rem 1rem;
 }
