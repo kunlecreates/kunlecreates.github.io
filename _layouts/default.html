@@ -53,14 +53,16 @@
 <body>
 
   <nav>
-    <ul>
-      <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
-      <li><a href="/projects/shopease/" class="{% if page.url == '/projects/shopease/' %}active{% endif %}">ShopEase Platform</a></li>
-      <li><a href="/projects/observability-stack/" class="{% if page.url == '/projects/observability-stack/' %}active{% endif %}">Observability Stack</a></li>
-      <li><a href="/projects/gitlab-ci/" class="{% if page.url == '/projects/gitlab-ci/' %}active{% endif %}">GitLab CI/CD</a></li>
-      <li><a href="/blog/" class="{% if page.url == '/blog/' %}active{% endif %}">Blog</a></li>
-      <li><a href="/projects/contact/" class="{% if page.url == '/projects/contact/' %}active{% endif %}">Contact</a></li>
-    </ul>
+    <div class="nav-container">
+      <ul>
+        <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+        <li><a href="/projects/shopease/" class="{% if page.url == '/projects/shopease/' %}active{% endif %}">ShopEase Platform</a></li>
+        <li><a href="/projects/observability-stack/" class="{% if page.url == '/projects/observability-stack/' %}active{% endif %}">Observability Stack</a></li>
+        <li><a href="/projects/gitlab-ci/" class="{% if page.url == '/projects/gitlab-ci/' %}active{% endif %}">GitLab CI/CD</a></li>
+        <li><a href="/blog/" class="{% if page.url == '/blog/' %}active{% endif %}">Blog</a></li>
+        <li><a href="/projects/contact/" class="{% if page.url == '/projects/contact/' %}active{% endif %}">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
   <!-- Cookie Consent Banner + GA4 Integration -->
